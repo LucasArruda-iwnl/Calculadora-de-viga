@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Projeto - A3 - 2/2002</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+
+
+
+    </head>
+
+    <body>
+        <div class="topo">
+            <h2>Calculadora de Flexões</h2>  <a href="SobreProjeto.html">A3 sobre projeto</a>
+        </div>
+
+        <ol>
+        <b>M i = Momento inercia</b><br>
+       <b> M f = Momento fletor</b> <br>
+       <b> M id = Momento Inercia com Diametro</b> <br>
+        <b>Sigma = sigma</b> 
+        <b>SigmaD = sigma usando unidade diametro</b>
+        <br>
+        </ol>
+
+        <div class="caixa" class="primeiro-numero">
+           <div><p>Calculadora de Flexões</p><br>  
+            <p>Carga em N</p>               <input id="n1" type="number" name="" placeholder="Carga em N"> 
+           <p>Medida em Base(b)</p>         <input id="n2" type="number" name="" placeholder="Medida em Base(b)"> 
+           <p>Medida em Altura(h)</p>       <input id="n3" type="number" name="" placeholder="Medida em Altura(h)"> 
+          <p>Medida em Diametro</p>         <input id="n4" type="number" name="" placeholder="Medida em Diametro"> 
+          <p>A medida do seu y</p>          <input id="n6" type="number" name="" placeholder="A medida do seu y">
+        <br>  
+         <div>
+              <form>
+                 <p>Numero para selecionar</p>  <!-- vai muda o titulo --> 
+                  <select input id="n7" type="number">
+                 
+                      <option>12</option> 
+                      <option>36</option> 
+                   
+                  </select>
+              </form>
+          </div> 
+                <div>
+          <br>
+                <button onclick="MomentoInercia()">Momento Inercia</button> 
+                <br>
+                <button onclick="MomentoFletor()">Momento fletor</button> 
+                 <br>
+               <button onclick="MomentoInerciaPI()">Momento Inercia diametro</button>   
+                 <br>
+                  <button onclick="Sigma()">Sigma</button>  
+                  <br>
+                   <button onclick="SigmaD()">Sigma Diametro</button>  
+                   <BR>
+               </div>
+
+
+               O resultado é <span></span>
+                                                                        
+            
+            
+
+               </div>
+               <script>
+                /* CALCULAR MOMENTO FLETOR */ 
+                /* N1 = BASE N2 = ALTURA N3 = PI FIXO */ 
+
+                   var n1 = document.querySelector('#n1')
+                   var n2 = document.querySelector('#n2')
+                   var n3 = document.querySelector('#n3')
+                   var n4 = document.querySelector('#n4')
+                  var n5 = document.querySelector('#n5')
+                  var n6 = document.querySelector('#n6')
+                  var n7 = document.querySelector('#n7')
+                   var resultado = document.querySelector('span')
+
+                   function MomentoFletor() {
+                        resultado.innerHTML = parseInt(n1.value) * parseFloat(n2.value)  
+                   }
+
+                   function MomentoInercia() {
+                    resultado.innerHTML = parseFloat(n2.value) * parseFloat(n3.value) * parseFloat(n3.value) * parseFloat(n3.value) / parseInt(n7.value)
+                   }
+
+                   function MomentoInerciaPI() { 
+                     resultado.innerHTML = 3.14159 * parseFloat(n4.value) * parseFloat(n4.value) * parseFloat(n4.value) * parseFloat(n4.value) / 4
+                   }
+                   
+                   function Sigma() { 
+                    resultado.innerHTML =  (parseInt(n1.value) * parseFloat(n6.value)) / (parseFloat(n2.value) * parseFloat(n3.value) * parseFloat(n3.value) * parseFloat(n3.value) / parseInt(n7.value)) 
+                  
+                                         }  
+                    function SigmaD() {
+                        resultado.innerHTML = parseInt(n1.value) * parseFloat(n6.value) / (3.14159 * parseFloat(n4.value) * parseFloat(n4.value) * parseFloat(n4.value) * parseFloat(n4.value) / 4)
+                    }
+
+
+
+                /** CRIAR IF E ELSE PARA CADA RESULTADO DE MOMENTO FLETOR 
+                 * MOMENTO INERCIA E MOMENTO INERCIA PI!! **/ 
+
+               </script>
+          
+
+       
+    </body>
+</html>
